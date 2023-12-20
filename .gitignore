@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+
+# Webpack
+dist/
+
+# Babel
+/.babelrc
+.babelrc
+babel.config.js
+
+# production
+/build/
+
+.env
