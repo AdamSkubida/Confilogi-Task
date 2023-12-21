@@ -7,6 +7,12 @@ module.exports = {
     filename: "bundle.js",
     path: path.resolve(__dirname, "dist"),
   },
+  devServer: {
+    static: path.join(__dirname, "dist"),
+    compress: true,
+    port: 3000,
+    hot: true,
+  },
   module: {
     rules: [
       {
@@ -19,6 +25,24 @@ module.exports = {
       {
         test: /\.(scss|css)$/,
         use: ["style-loader", "css-loader", "sass-loader"],
+      },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        use: [
+          {
+            loader: "file-loader",
+          },
+        ],
+      },
+      {
+        test: /\.svg$/,
+        use: {
+          loader: "file-loader",
+          options: {
+            name: "[name].[ext]",
+            outputPath: "svg/",
+          },
+        },
       },
     ],
   },
